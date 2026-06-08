@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joelheira Ortopédica | Jonatan Pro Vendas</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #E8002A;
+    --dark: #0a0a0a;
+    --darker: #060606;
+    --gold: #FFD700;
+    --white: #ffffff;
+    --gray: #1a1a1a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--darker);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,0,42,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(232,0,42,0.15) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0a0a 0%, #060606 100%);
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(232,0,42,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,0,42,0.07) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+    animation: gridMove 20s linear infinite;
+  }
+
+  @keyframes gridMove {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+  .badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 100px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    animation: fadeDown 0.7s ease 0.1s both;
+  }
+
+  .hero h1 span { color: var(--red); }
+
+  .hero-sub {
+    font-size: clamp(14px, 3vw, 18px);
+    color: rgba(255,255,255,0.7);
+    margin: 20px 0 36px;
+    line-height: 1.6;
+    animation: fadeDown 0.7s ease 0.2s both;
+  }
+
+  .hero-img-wrap {
+    position: relative;
+    margin: 30px auto;
+    width: 260px;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .hero-img-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(232,0,42,0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.7; }
+  }
+
+  .hero-img-wrap img,
+  .hero-img-placeholder {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    border: 3px solid rgba(232,0,42,0.5);
+    box-shadow: 0 0 60px rgba(232,0,42,0.3);
+  }
+
+  .hero-img-placeholder {
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .hero-img-placeholder span {
+    font-size: 60px;
+  }
+
+  .hero-img-placeholder p {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  /* BENEFITS BAR */
+  .benefits-bar {
+    background: var(--red);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .benefits-bar span { display: flex; align-items: center; gap: 6px; }
+
+  /* SECTION */
+  section { padding: 70px 20px; max-width: 800px; margin: 0 auto; }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 8vw, 64px);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .section-title span { color: var(--red); }
+
+  /* PAIN POINTS */
+  .pains {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+
+  .pain-card {
+    background: var(--gray);
+    border: 1px solid rgba(232,0,42,0.2);
+    border-radius: 8px;
+    padding: 24px 20px;
+    text-align: center;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .pain-card:hover { border-color: var(--red); transform: translateY(-4px); }
+
+  .pain-card .icon { font-size: 36px; margin-bottom: 12px; }
+
+  .pain-card p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+
+  /* FEATURES */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--gray);
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 3px solid var(--red);
+    transition: transform 0.3s;
+  }
+
+  .feature:hover { transform: translateX(6px); }
+
+  .feature-icon { font-size: 28px; flex-shrink: 0; }
+
+  .feature h3 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+
+  .feature p { font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+  /* PRICING */
+  .pricing-wrap {
+    background: var(--gray);
+    border-radius: 16px;
+    padding: 50px 30px;
+    border: 1px solid rgba(232,0,42,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--red), transparent);
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .price-card {
+    background: var(--darker);
+    border-radius: 12px;
+    padding: 30px 24px;
+    text-align: center;
+    border: 2px solid rgba(255,255,255,0.08);
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+  }
+
+  .price-card.featured {
+    border-color: var(--red);
+    transform: scale(1.03);
+  }
+
+  .price-card:hover { border-color: var(--red); transform: scale(1.05); }
+  .price-card.featured:hover { transform: scale(1.07); }
+
+  .popular-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: #000;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .price-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .price-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 56px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .price-value small {
+    font-size: 22px;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+
+  .price-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 6px;
+  }
+
+  .price-saving {
+    display: inline-block;
+    background: rgba(232,0,42,0.2);
+    color: var(--red);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+
+  /* CTA BUTTON */
+  .btn-cta {
+    display: block;
+    width: 100%;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    border-radius: 8px;
+    margin-top: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    text-align: center;
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(37,211,102,0.5);
+  }
+
+  /* MAIN CTA SECTION */
+  .cta-section {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(180deg, var(--darker) 0%, rgba(232,0,42,0.08) 50%, var(--darker) 100%);
+  }
+
+  .btn-main {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 20px 50px;
+    border-radius: 8px;
+    margin-top: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 30px rgba(37,211,102,0.4);
+    animation: btnPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes btnPulse {
+    0%, 100% { box-shadow: 0 4px 30px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 8px 50px rgba(37,211,102,0.7); }
+  }
+
+  .btn-main:hover { transform: translateY(-3px) scale(1.03); }
+
+  /* GUARANTEE */
+  .guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: rgba(255,215,0,0.05);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 12px;
+    padding: 24px 30px;
+    max-width: 500px;
+    margin: 40px auto 0;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .guarantee-icon { font-size: 48px; }
+
+  .guarantee h4 { font-size: 16px; font-weight: 700; color: var(--gold); }
+
+  .guarantee p { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  footer strong { color: var(--red); }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: var(--red);
+    margin: 0 auto 30px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="badge">⚡ Oferta Especial — Estoque Limitado</div>
+    <h1>JOELHEIRA<br><span>ORTOPÉDICA</span></h1>
+    <p class="hero-sub">Alívio imediato das dores no joelho.<br>Suporte profissional, conforto o dia todo.</p>
+    <div class="hero-img-wrap">
+      <img src="https://drive.google.com/uc?export=view&id=1JunOFonaMHQfp1Tv2sWBn3A1nbnRlqig" alt="Joelheira Ortopédica" style="width:280px;height:280px;border-radius:16px;object-fit:cover;position:relative;z-index:1;border:3px solid rgba(232,0,42,0.5);box-shadow:0 0 60px rgba(232,0,42,0.3);">
+</div>
+    <a href="https://wa.me/5541985232382?text=Olá!%20Tenho%20interesse%20na%20Joelheira%20Ortopédica!" class="btn-main">
+      💬 Quero Comprar Agora
+    </a>
+  </div>
+</div>
+
+<!-- BENEFITS BAR -->
+<div class="benefits-bar">
+  <span>✅ Entrega Rápida</span>
+  <span>🔒 Compra Segura</span>
+  <span>💯 Qualidade Garantida</span>
+  <span>📦 Estoque Limitado</span>
+</div>
+
+<!-- DOR -->
+<section class="reveal">
+  <h2 class="section-title">Você sofre com<br><span>isso?</span></h2>
+  <div class="divider"></div>
+  <div class="pains">
+    <div class="pain-card">
+      <div class="icon">😣</div>
+      <p>Dor constante no joelho que não passa com nada</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🚶</div>
+      <p>Dificuldade pra caminhar, subir escadas ou ficar em pé</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">😴</div>
+      <p>Dor que atrapalha o sono e a sua rotina diária</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">💊</div>
+      <p>Dependência de remédios que só mascaram o problema</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section class="reveal">
+  <h2 class="section-title">A <span>solução</span><br>que você precisava</h2>
+  <div class="divider"></div>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🎯</div>
+      <div>
+        <h3>Suporte Firme e Preciso</h3>
+        <p>Estabiliza o joelho e reduz a pressão nas articulações, aliviando a dor na hora.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🌬️</div>
+      <div>
+        <h3>Material Respirável</h3>
+        <p>Tecido de alta qualidade que não abafa — pode usar o dia todo com conforto.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚙️</div>
+      <div>
+        <h3>Ajuste Perfeito</h3>
+        <p>Regulagem fácil que se adapta a qualquer tamanho de joelho.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🏃</div>
+      <div>
+        <h3>Para Qualquer Atividade</h3>
+        <p>Ideal para caminhada, trabalho, exercícios e uso diário.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🛡️</div>
+      <div>
+        <h3>Proteção Ortopédica</h3>
+        <p>Indicada para artrose, tendinite, lesões e recuperação pós-cirúrgica.</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">✅</div>
+      <div>
+        <h3>Resultado Imediato</h3>
+        <p>Sente a diferença no primeiro uso — alívio real, não promessa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREÇOS -->
+<section class="reveal">
+  <h2 class="section-title">Escolha seu <span>plano</span></h2>
+  <div class="divider"></div>
+  <div class="pricing-wrap">
+    <div class="pricing-cards">
+
+      <div class="price-card">
+        <h3>1 Unidade</h3>
+        <div class="price-value"><small>R$</small>90<small>,51</small></div>
+        <p class="price-note">por unidade</p>
+        <a href="https://wa.me/5541985232382?text=Olá!%20Quero%20comprar%201%20unidade%20da%20Joelheira%20Ortopédica%20por%20R$90,51!" class="btn-cta">
+          💬 Pedir pelo WhatsApp
+        </a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="popular-tag">⭐ Mais Vendido</div>
+        <h3>Kit 3 Unidades</h3>
+        <div class="price-value"><small>R$</small>154<small>,41</small></div>
+        <p class="price-note">kit completo</p>
+        <div class="price-saving">Economize R$117,12!</div>
+        <a href="https://wa.me/5541985232382?text=Olá!%20Quero%20comprar%20o%20Kit%203%20Joelheiras%20Ortopédicas%20por%20R$154,41!" class="btn-cta">
+          💬 Pedir pelo WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-section reveal">
+  <h2 class="section-title">Chega de<br><span>sofrer!</span></h2>
+  <p style="color:rgba(255,255,255,0.6); max-width:500px; margin:0 auto; font-size:15px; line-height:1.7;">
+    Não deixe a dor no joelho limitar sua vida.<br>
+    Garanta sua joelheira agora e sinta a diferença no primeiro uso.
+  </p>
+  <a href="https://wa.me/5541985232382?text=Olá!%20Tenho%20interesse%20na%20Joelheira%20Ortopédica!" class="btn-main">
+    💬 Garantir Minha Joelheira Agora
+  </a>
+
+  <div class="guarantee">
+    <div class="guarantee-icon">🏅</div>
+    <div>
+      <h4>Satisfação Garantida</h4>
+      <p>Produto de qualidade ortopédica.<br>Sua saúde em primeiro lugar.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <strong>Jonatan Pro Vendas</strong> — Todos os direitos reservados.</p>
+  <p style="margin-top:8px;">Dúvidas? Fale pelo WhatsApp: (41) 98523-2382</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
